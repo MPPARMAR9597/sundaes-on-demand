@@ -9,7 +9,7 @@ import OrderEntry from "../OrderEntry";
 import { rest } from "msw";
 import { server } from "../../../mocks/server";
 
-test("Handles Error for scoops and toppings routes", async () => {
+it("Handles Error for scoops and toppings routes", async () => {
   server.resetHandlers(
     rest.get("http://localhost:3030/scoops", (req, res, ctx) =>
       res(ctx.status(500))
@@ -19,7 +19,7 @@ test("Handles Error for scoops and toppings routes", async () => {
     )
   );
 
-  render(<OrderEntry />);
+  render(<OrderEntry setOrderPhase={jest.fn()} />);
 
   await waitFor(async () => {
     const alerts = await screen.findAllByRole("alert");

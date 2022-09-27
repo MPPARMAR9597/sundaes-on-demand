@@ -7,7 +7,7 @@ import {
 import SummaryForm from "../SummaryForm";
 import userEvent from "@testing-library/user-event";
 
-test("Initial conditions", () => {
+it("Initial conditions", () => {
   render(<SummaryForm />);
   const checkbox = screen.getByRole("checkbox", {
     name: /terms and conditions/i,
@@ -18,7 +18,7 @@ test("Initial conditions", () => {
   expect(confirmButton).toBeDisabled();
 });
 
-test("Checkbox enables button on first click and disables on second click", () => {
+it("Checkbox enables button on first click and disables on second click", () => {
   render(<SummaryForm />);
   const checkbox = screen.getByRole("checkbox", {
     name: /terms and conditions/i,
@@ -32,7 +32,7 @@ test("Checkbox enables button on first click and disables on second click", () =
   expect(confirmButton).toBeDisabled();
 });
 
-test("popover responds to hover", async () => {
+it("popover responds to hover", async () => {
   render(<SummaryForm />);
 
   // popover starts out hidden

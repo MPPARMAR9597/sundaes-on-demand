@@ -1,7 +1,7 @@
 import { render, screen } from "../../../test-utils/testing-library-utils";
 import Options from "../Options";
 
-test("displays image for each scoop option from server", async () => {
+it("displays image for each scoop option from server", async () => {
   render(<Options optionType="scoops" />);
 
   // find images
@@ -14,7 +14,7 @@ test("displays image for each scoop option from server", async () => {
   expect(altText).toEqual(["Chocolate scoop", "Vanilla scoop"]);
 });
 
-test("displays image for each toppings option from server", async () => {
+it("displays image for each toppings option from server", async () => {
   // Mock Services worker will return three toppings from the server
   render(<Options optionType="toppings" />);
 

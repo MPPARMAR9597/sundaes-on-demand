@@ -6,6 +6,7 @@ import ToppingOption from "./ToppingOption";
 import AlertBanner from "../Common/AlertBanner";
 import { pricePerItem } from "../../constants";
 import { useOrderDetails } from "../../contexts/OrderDetails";
+import { formatCurrency } from "../../utilities";
 
 export default function Options({ optionType }) {
   const [items, setItems] = useState([]);
@@ -42,11 +43,11 @@ export default function Options({ optionType }) {
   return (
     <>
       <h2>{title}</h2>
-      <p>{pricePerItem[optionType]} each</p>
+      <p>{formatCurrency(pricePerItem[optionType])} each</p>
       <p>
         {title} total: {OrderDetails.totals[optionType]}
       </p>
-      <Row>{optionItems}</Row>;
+      <Row>{optionItems}</Row>
     </>
   );
 }
